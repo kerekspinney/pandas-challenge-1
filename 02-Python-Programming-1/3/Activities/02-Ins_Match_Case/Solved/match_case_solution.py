@@ -17,73 +17,70 @@ pie_list = ["Pecan",
             "Steak"]
 
 # Display initial message
-
-
-# Display initial message
 print("Welcome to the House of Pies! Here are our pies:")
 
 # While we are still shopping...
-while True:
+while place_order:
 
     # Show pie selection prompt
     print("-" * 50)
-    for pie_number, pie in enumerate(pie_list, start=1):
+    pie_number = 1
+    for pie in pie_list:
         print(f"({pie_number}) {pie}")
+        pie_number += 1
 
     pie_choice = input("Which would you like? ")
 
-    # Validate input
-    if pie_choice.isdigit():
-        choice_index = int(pie_choice) - 1
+    # Get index of the pie from the selected number
+    choice_index = int(pie_choice) - 1
 
-        # Validate index
-        if 0 <= choice_index < len(pie_list):
-            # Add pie to the pie list by finding the matching index and adding one to its value
-            pie_purchases[choice_index] += 1
+    # Add pie to the pie list by finding the matching index and adding one to its value
+    pie_purchases[choice_index] += 1
 
-            print("-" * 50)
+    print("-" * 50)
 
-            # Inform the customer of the pie purchase
-            print("Great! We'll have that " + pie_list[choice_index] 
-                  + " Pie right out for you.")
+    # Inform the customer of the pie purchase
+    print("Great! We'll have that " + pie_list[choice_index] 
+          + " Pie right out for you.")
 
-            # Provide exit option
-            while True:
-                # Ask the customer if they would like to order anything else
-                keep_ordering = input("Would you like to keep ordering? (Y)es or (N)o ").lower()
+    # Provide exit option
+    while True:
+		# Ask the customer if they would like to order anything else
+        keep_ordering = input("Would you like to keep ordering? (Y)es or (N)o ")
 
-                # Check the customer's input
-                if keep_ordering == 'y':
-                    # Keep ordering
-                    break
-                elif keep_ordering == 'n':
-                    # Complete the order
-                    print("Thank you for your order.")
-                    break
-                else:
-                    # Tell the customer to try again
-                    print("I didn't understand your response. Please try again.")
-        else:
-            print("Invalid pie number. Please try again.")
-    else:
-        print("Invalid input. Please enter a number.")
-
-    if keep_ordering == 'n':
-        break
+        # Check the customer's input
+        match keep_ordering.lower():
+            # Customer chose yes
+            case 'y':
+                # Keep ordering
+                place_order = True
+                # Exit the keep ordering question loop
+                break
+            # Customer chose no
+            case 'n':
+                # Complete the order
+                place_order = False
+                # Since the customer decided to stop ordering, thank them for their order
+                print("Thank you for your order.")
+                # Exit the keep ordering question loop
+                break
+            # Customer typed an invalid input
+            case _:
+                # Tell the customer to try again
+                print("I didn't understand your response. Please try again.")
 
 # Once the pie list is complete
 print("-" * 50)
+
+# Count instances of each pie
 print("You purchased: ")
 
 # Loop through the full pie list
-for pie_index, pie_name in enumerate(pie_list):
+for pie_index in range(len(pie_list)):
     pie_count = pie_purchases[pie_index]
+    pie_name = pie_list[pie_index]
 
     # If the pie count is greater than or equal to 1:
     if pie_count >= 1:
         # Gather the count of each pie in the pie list and print them alongside the pies
         print(f"{pie_count} {pie_name} Pie")
-
-
-
-        ## Adding something else 
