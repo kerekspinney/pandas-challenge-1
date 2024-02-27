@@ -10,6 +10,8 @@ print(letters)
 # List comprehensions provide concise syntax for creating lists
 letters = [letter for letter in fish]
 
+#    [ RETURN LOOP FILTER ]
+
 print(letters)
 
 # We can manipulate each element as we go

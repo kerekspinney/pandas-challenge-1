@@ -76,23 +76,17 @@ for row in birds_list:
     print(row[3])
 
 # Calculate the total weight (kg) of all the birds in the birds list
-print(f"{sum(birds_list[2])/1000:.3f}kg")
-
-
+print(f"Total bird weights: {sum(birds_list[2])/1000:.3f}kg")
 
 # Loop through the birds_dictionaries list
-
-weight_ratios = []
 for item in birds_dictionaries:
     # Print the names of the birds and their lifespans from the birds_dictionary
-    print(f"{item['name']} can live for {item['lifespan']} years")
+    print(f'{item["name"]} can live for {item["lifespan"]} years')
 
     # Calculate and print out the size to weight ratio
     size_to_weight_ratio = item["size (cm)"] / item["weight (g)"]
-    weight_ratios.append(size_to_weight_ratio)
-    
     print(f"Its size to weight ratio is {size_to_weight_ratio}")
     print("-" * 50)
 
-# Highest size to weight ratio: 
-# Lowest size to weight ratio: 
+# Highest size to weight ratio: hummingbird with 2.0
+# Lowest size to weight ratio: emperor penguin with 0.00115
