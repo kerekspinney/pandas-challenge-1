@@ -6,3 +6,17 @@ def hello():
 hello()
 
 # Define the scream function.
+def scream():
+    # in function comment.
+    
+    print("AAAAAAAAAAAAAAARARRRRRRRRRRRGGGG!!!!")
+    print("-"*50)
+    print("AAAAAAAAAAAAAAARARRRRRRRRRRRGGGG!!!!\n")
+    
+    while True:
+        print("test")
+        break
+
+
+if __name__ == "__main__":
+    scream()
