@@ -1,5 +1,8 @@
 """Passing Arguments."""
 
+test = 1
+
+
 # Define a function that will add two numbers.
 def add():
     """This function takes two numbers and adds them and then returns the total."""
@@ -7,11 +10,12 @@ def add():
     second_number = 2 # This is a local scope of the function.
     total = first_number + second_number
     print(f"Your total is: {total}")
+    print(test)
 
 
-if __name__ == "__main__":
-    add()
-    print(first_number)
+# if __name__ == "__main__":
+#     add()
+    # print(first_number)
 
 
 # Global variables for first_number and second_number.
@@ -25,6 +29,8 @@ def addition():
     second_number = 2 # This is a local variable of the function.
     total = first_number + second_number
     print(f"Your total is: {total}")
+
+print("Total", first_number + second_number )
 
 if __name__ == "__main__":
     addition()
